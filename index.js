@@ -6,14 +6,9 @@
 var fs = require('fs')
 var path = require('path')
 var util = require('./lib/util.js')
-var analyzer = require("./lib/analyzer.js")
-var cytoscape = require("./lib/cytoscape-format.js")
-var vis = require("./lib/visjs-format.js")
-var docEngine = require("./lib/doc-engine.js")
 var inspect = require('eyes').inspector({maxLength: false})
 var CfmlHandler = require("./lib/cfml-parser/cfml-handler.js")
 var CfmlParser = require("./lib/cfml-parser/cfml-parser.js")
-var jstoxml = require('jstoxml');
 
 // promise config
 var Promise = require("bluebird")
@@ -39,15 +34,7 @@ var save = (data, fileName) => {
 //var directoryToAnalyze = process.argv[2]
 //console.log(directoryToAnalyze)
 
-/*
-analyzer
-  .analyze(directoryToAnalyze)
-    .then(result => vis.format(result))
-    //.then(result => console.log(JSON.stringify(result)))
-    .then(visData => save(visData, 'dataset.js'))
-    //.then(() => console.log('exit'))
 
-*/
 
 /*
 1. get json metadata, http GET
