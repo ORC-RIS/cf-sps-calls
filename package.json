@@ -1,25 +1,22 @@
 {
-  "name": "cf-code-metrics",
+  "name": "cf-sps-calls",
   "version": "0.0.1",
-  "description": "ColdFusion code metrics",
+  "description": "ColdFusion stored procedures calls",
   "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha -u bdd"
   },
   "keywords": [
-    "cf",
-    "dependency-graph",
-    "code-metrics",
-    "static-analysis"
+    "cf"
   ],
   "repository": {
     "type": "git",
     "url": "git@github.com:ORC-RIS/cf-code-metrics.git"
   },
   "bugs": {
-    "url": "https://github.com/ORC-RIS/cf-code-metrics/issues"
+    "url": "https://github.com/ORC-RIS/cf-sps-calls/issues"
   },
-  "homepage": "https://github.com/ORC-RIS/cf-code-metrics",
+  "homepage": "https://github.com/ORC-RIS/cf-sps-calls",
   "author": "Ezequiel M Gioia",
   "license": "MIT",
   "dependencies": {
@@ -33,6 +30,7 @@
     "eyes": "^0.1.8",
     "handlebars": "^4.0.5",
     "htmlparser2": "^3.9.1",
+    "jstoxml": "^0.2.4",
     "markdown-utils": "^0.7.3",
     "mkpath": "^1.0.0",
     "mocha": "^2.4.5",
