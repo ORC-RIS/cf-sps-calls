@@ -1,0 +1,33 @@
+<cfcomponent>
+
+  <cffunction name="getMetadata" access="remote">
+
+
+    <cfset strPath = ExpandPath( "./" ) />
+
+    <cfset applicationStop() />
+
+  </cffunction>
+
+
+  <cffunction name="AddFunctionsLineNumber" output="yes">
+    <cfargument name="line" type="string" required="yes" hint="Source code line." />
+    <cfargument name="metadata" required="yes" hint="Component metadata struct." />
+    <cfargument name="lineNumber" required="yes" hint="Line number." />
+
+    <!--- iterate over functions --->
+    <cfloop array="#metadata.FUNCTIONS#" index="item">
+
+      <!--- search for function name on current line --->
+      <cfif FindNoCase("name=""#item["NAME"]#""", line)>
+
+        <!--- add LINE_NUMBER attribute to function struct --->
+        <cfset item["LINE_NUMBER"] = Int(lineNumber) />
+
+      </cfif>
+
+    </cfloop>
+
+  </cffunction>
+  
+</cfcomponent>
