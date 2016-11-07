@@ -1,7 +1,7 @@
 {
   "name": "cf-sps-calls",
   "version": "0.0.1",
-  "description": "ColdFusion stored procedures calls",
+  "description": "ColdFusion stored procedure calls",
   "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha -u bdd"
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ORC-RIS/cf-code-metrics.git"
+    "url": "git@github.com:ORC-RIS/cf-sps-calls.git"
   },
   "bugs": {
     "url": "https://github.com/ORC-RIS/cf-sps-calls/issues"

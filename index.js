@@ -30,35 +30,6 @@ var save = (data, fileName) => {
   })
 }
 
-//TODO: validate app parameters
-//var directoryToAnalyze = process.argv[2]
-//console.log(directoryToAnalyze)
-
-
-
-/*
-1. get json metadata, http GET
-2. generate MD
-  2.1 create 1 file per component in metadata
-3. generate HTML
-*/
-/*
-var docEngine = null
-docEngine.getMetadata()
-  .then(metadata => generateMD(metadata))
-  .then(mdFiles => generateHTML(mdFiles))
-*/
-
-//analzer
-  //.parseXML('./test/data.xml')
-  //.then(content => console.log(content))
-
-
-//docEngine.getMetadata('./components-data-3.js')
-//  .then(metadata => docEngine.generateHTML(metadata))
-  //.then(metadata => console.log(metadata))
-  //.catch(err => console.log(err))
-
 // searchs for any json object in depth for a given property name and value
 var getObject = (obj, propName, propValue) => {
     var result = []
@@ -168,7 +139,6 @@ var processDirectory = (dirName) => {
           .then(data => {
             
             //console.log("SPS: %j", sps[0])
-                      //  return
                       
             // append File   
             var fileStream = fs.createWriteStream('bip' + '.csv', {
@@ -198,19 +168,15 @@ var processDirectory = (dirName) => {
                 })
               }
             })
-            
-            //console.log("File: %j", sps)
-            
-            //util.save(JSON.stringify(sps), 'testeze.xml')
-            //console.log("File: %j", handler.dom)
-
-
-            //result.files = data
-            //resolve(result)
+          
           })
       }
-  //  })
   })
 }
 
-processDirectory('./test/scan/bip')
+//processDirectory('./test/scan/bip')
+
+var directoryToAnalyze = process.argv[2]
+processDirectory(directoryToAnalyze)
+//processDirectory('./test/scan/bip')
+console.log()

@@ -1,67 +1,17 @@
-# cf-code-metrics
-ColdFusion code metrics based on static analysis
+# cf-sps-calls
+Tool to extract information for stored procedure calls in a ColdFusion application.
 
-## Features
-* Static HTML generation
-* Documentation generation for cfc components
-* Includes dependencies visualization
-* Call graph, visualization of function calls
-* Contributors list based on GitHub repository commit history
-* Datasources
-* Stored procedures used by component
+## Note
+* Generates a CSV file 
+
+| filename | sp_name | parameter | datasource | line |
+
+## Internals
+* This tools is parsing CFML code using a modified version of [htmlparser2], check [cfml-parser.js] and [cfml-handler.js]
+* CFScript code is not supported at this time.
+
 
 ## Use mode
 1. Initialize a directory: `node cf-code-metrics init`
 2. Define GitHub repository path and application URL
 3. Generate documentation:: `node cf-code-metrics`
-
-## Internals
-
-### Includes dependencies calculation
-
-### Call graph estimation
-
-### Components doc generation
-`[components] -> [cf metadata] -> [json] -> [html]`
-
-##### cf
-Extracts components metadata using `getComponentMetadata` function and converts it to json.
-
-##### node
-Process a json component metadata file and generates HTML using handlebars template engine.
-
-## project structure
-```.
-├── assets
-│   └── js
-│       ├── template-helpers
-│       └── templates
-├── cf-doc
-│   └── assets
-├── docs
-│   ├── html
-│   │   └── assets
-│   └── md
-├── lib : source code
-├── node_modules
-├── projects
-│   └── paris
-├── templates
-│   └── like-elixir-doc
-├── test
-│   ├── analyzer
-│   │   └── data
-│   │       ├── cfml-comments
-│   │       ├── circular-cfinclude
-│   │       ├── empty-dir
-│   │       ├── html-comments
-│   │       ├── ignore-non-supported-files
-│   │       ├── js-comments
-│   │       ├── simple-cfinclude
-│   │       └── subdirectories
-│   │           └── dirA
-│   │               └── dirAA
-│   └── util
-└── www
-    └── cf-doc
-```
