@@ -139,9 +139,12 @@ var processDirectory = (dirName) => {
           .then(data => {
             
             //console.log("SPS: %j", sps[0])
-                      
+            // get the app name from the directory
+            var app_name = path.normalize(dirName).split(path.sep).pop()
+            console.log('Exporting store procedure calls to: ' + app_name + '.csv')
+          
             // append File   
-            var fileStream = fs.createWriteStream('bip' + '.csv', {
+            var fileStream = fs.createWriteStream(app_name + '.csv', {
               flags: 'w' // 'a' means appending (old data will be preserved)
             })
         
@@ -170,6 +173,7 @@ var processDirectory = (dirName) => {
             })
           
           })
+          //.then(() => console.log('done') )
       }
   })
 }
