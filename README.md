@@ -7,9 +7,10 @@ The output is a CSV  file with the following format:
 filename, sp_name, parameter, datasource, line
 ```
 ## Use mode
-1. Execute index.js and pass the path to the ColdFusion application source code:
+Execute index.js and pass the path to the ColdFusion application source code:
+```
 node index.js ./my_app
-
+```
 ## Internals
 * This tool is parsing CFML code using a modified version of [htmlparser2][1], check [cfml-parser.js][2] and [cfml-handler.js][3]
 * CFScript code is not supported at this time.
