@@ -149,7 +149,7 @@ var processDirectory = (dirName) => {
             })
         
             // write column names
-            fileStream.write('filename, sp_name, parameter, datasource, line \n')
+            fileStream.write('filename,sp_name,parameter,datasource,line,ordinal_position\r\n')
         
             
             data.forEach((file) => {
@@ -161,12 +161,13 @@ var processDirectory = (dirName) => {
                 {
                   if (sp) {
                     
-                    // for each parameter
-                    sp.parameters.forEach((param) =>
-                    {
-
-                      fileStream.write(file.file + ', ' + sp.name + ', ' + param + ', ' + sp.datasource + ', ' + sp.line  + '\n')
-                    })
+                    // for each parameter (iterating in the reverse order)
+                    var ordinalPosition = 0
+                    for (var i = sp.parameters.length - 1, len = sp.parameters.length; i >= 0; i--) {
+                      var param = sp.parameters[i]
+                      ordinalPosition++
+                      fileStream.write(file.file + ',' + sp.name + ',' + param + ',' + sp.datasource + ',' + sp.line + ',' + ordinalPosition  + '\r\n')
+                    }
                   }
                 })
               }

@@ -39,3 +39,4 @@ node_modules
 .csv
 /*.csv
 /test/scan
+/apps
